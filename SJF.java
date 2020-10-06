@@ -1,9 +1,11 @@
-package desafio;
+package algoritmo_escalonamento;
 
 import java.util.Scanner;
 
+/* Shortest Job First*/
 public class SJF {
 
+	/*Funcao que calcula a diferenca entra o tempo de rotacao e o Burst Time*/
 	public static int[] waiting_time(int processos[][]) {
 		int tempo_servico[] = new int [1 * processos.length];
 		int wt[] = new int [1 * processos.length];
@@ -18,6 +20,7 @@ public class SJF {
 		return wt;
 	}
 	
+	/*Funcao que calcula a diferenca entre a hora de conclusao e a hora de chegada dos processos*/
 	public static int[] turn_around_time(int processos[][]) {
 		int tat[] = new int [1 * processos.length];
 		int[] wt = waiting_time(processos);
@@ -27,6 +30,7 @@ public class SJF {
 		return tat;
 	}
 	
+	/*Funcao que calcula a media do tempo de espera(Waiting time)*/
 	public static float average_wt(int processos[][]) {
 		float qnt_proc = processos.length;
 		float wt = 0;
@@ -36,6 +40,7 @@ public class SJF {
 		return (wt/qnt_proc);
 	}
 	
+	/*Funcao que calcula a media do tempo que os processos chegam ao cliente*/
 	public static float average_tat(int processos[][]) {
 		float qnt_proc = processos.length;
 		float tat = 0;
@@ -45,8 +50,9 @@ public class SJF {
 		return (tat/qnt_proc);
 	}
 	
+	/*Funcao que calcula o SJF(shortert job first), onde o processo com menor burst time sera executado primeiro*/
 	public static int[][] sjf (int processos[][]) {
-		for (int i = 0; i < processos.length; i++) {
+		for (int i = 0; i < processos.length; i++) { 
 			for (int l = 0; l < processos.length-1; l++) {
 				if(processos[l][1] > processos[l+1][1]) {
 					processos[l] = processos[l+1];
@@ -87,7 +93,7 @@ public class SJF {
 		float avg_tat = average_tat(processos);
 		float avg_wt = average_wt(processos);
 		
-		System.out.println("| Process | Burst Time | Arrival Time | Waiting Time | Turn-around Time");
+		System.out.println("| Process | Burst Time | Arrival Time | Waiting Time | Turn-around Time | Completion Time");
 		
 		for (int proc = 0; proc < processos.length; proc++) {
 			System.out.printf( proc + " --- " + processos[proc][1] + " --- " + processos[proc][0] + " --- " + wt[proc] + " --- " + tat[proc] + " --- " + (tat[proc]+processos[proc][0]));
@@ -101,14 +107,17 @@ public class SJF {
 		processos = sjf(processos);
 		int[] wt1 = waiting_time(processos);
 		int[] tat1 = turn_around_time(processos);
+		float avg_tat1 = average_tat(processos);
+		float avg_wt1 = average_wt(processos);
 		
 		for (int proc = 0; proc < processos.length; proc++) {
 			System.out.printf( proc + " --- " + processos[proc][1] + " --- " + processos[proc][0] + " --- " + wt1[proc] + " --- " + tat1[proc] + " --- " + (tat1[proc]+processos[proc][0]));
 			System.out.println("");
 		}
-		System.out.println("Average Waiting Time: " + avg_wt);
-		System.out.println("Average Turn-Around Time: " + avg_tat);
+		System.out.println("Average Waiting Time: " + avg_wt1);
+		System.out.println("Average Turn-Around Time: " + avg_tat1);
 		
 		entrada.close();
 	}
 }
+/*Traduzido por: Ruan Christian Pontes dos Santos*/
