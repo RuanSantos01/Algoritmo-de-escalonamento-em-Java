@@ -1,9 +1,11 @@
-package desafio;
+package algoritmo_escalonamento;
 
 import java.util.Scanner;
 
+/*Round Robin*/
 public class RR {
-
+	
+	/*Funcao que calcula o Round Robin(RR), onde o tempo de execucao de cada processo e determinado por uma unidade de tempo chamada Quantum*/
 	public static int[] round_robin(int processos[][], int quantum, int qnt_processos) {
 
 		int bt_restante[] = new int[1 * qnt_processos];
@@ -42,6 +44,7 @@ public class RR {
 		return wt;
 	}
 
+	/*Funcao que calcula a diferenca entre a hora de conclusao e a hora de chegada dos processos*/
 	public static int[] turn_around_time(int processos[][], int wt[], int qnt_processos) {
 		int tat[] = new int[1 * qnt_processos];
 		for (int i = 0; i < qnt_processos; i++) {
@@ -50,6 +53,7 @@ public class RR {
 		return tat;
 	}
 	
+	/*Funcao que calcula a media do tempo que os processos chegam ao cliente*/
 	public static float average_tat(int tat[], float qnt_processos) {
 		float turnaround_time = 0;
 		for (float i: tat) {
@@ -58,6 +62,7 @@ public class RR {
 		return (turnaround_time/qnt_processos);
 	}
 	
+	/*Funcao que calcula a media do tempo de espera(Waiting time)*/
 	public static float average_wt(int wt[], float qnt_processos) {
 		float waiting_time = 0;
 		for (float i : wt) {
@@ -123,3 +128,4 @@ public class RR {
 		entrada.close();
 	}
 }
+/*Traduzido por: Ruan Christian Pontes dos Santos*/
