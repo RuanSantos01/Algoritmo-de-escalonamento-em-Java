@@ -1,9 +1,11 @@
-package desafio;
+package algoritmo_escalonamento;
 
 import java.util.Scanner;
 
+/*First come first Served - nao preemptiva, metodo onde o primeiro processo a ser executado sera o primeiro a ser terminado*/
 public class FCFS {
-
+	
+	/*Funcao que calcula a diferenca entra o tempo de rotacao e o Burst Time*/
 	public static int[] waiting_time(int processos[][]) {
 		int tempo_servico[] = new int [1 * processos.length];
 		tempo_servico[0] = 0;
@@ -20,6 +22,7 @@ public class FCFS {
 		return wt;
 	}
 	
+	/*Funcao que calcula a diferenca entre a hora de conclusao e a hora de chegada dos processos*/
 	public static int[] turn_around_time(int processos[][]) {
 		int tat[] = new int [1 * processos.length];
 		int[] wt = waiting_time(processos);
@@ -29,6 +32,7 @@ public class FCFS {
 		return tat;
 	}
 	
+	/*Funcao que calcula a media do tempo de espera(Waiting time)*/
 	public static float average_wt(int processos[][]) {
 		float qnt_proc = processos.length;
 		float wt = 0;
@@ -38,6 +42,7 @@ public class FCFS {
 		return (wt/qnt_proc);
 	}
 	
+	/*Funcao que calcula a media do tempo que os processos chegam ao cliente*/
 	public static float average_tat(int processos[][]) {
 		float qnt_proc = processos.length;
 		float tat = 0;
@@ -86,3 +91,4 @@ public class FCFS {
 		entrada.close();
 	}
 }
+/*Traduzido por: Ruan Christian Pontes dos Santos*/
