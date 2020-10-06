@@ -1,7 +1,9 @@
-package desafio;
+package algoritmo_escalonamento;
 
+/*Earliest Deadline First - preemptivo*/
 public class EDF {
 		
+	/*Receber e retornar o maior periodo*/
 		public int hiper_periodo(int processos[][], int qnt){
 			int temp = 0;
 			for (int i = 1; i < (qnt+1); i ++) {
@@ -12,6 +14,7 @@ public class EDF {
 			return temp;
 		}
 		
+		/*Funcao para descobrir qual dos processos tem menor deadline*/
 		public static int escolher_menor_deadline(int processos[][], int qnt, int deadlines[]) {
 			int menor_deadline = 10000;
 			int escolhido = -1;
@@ -24,6 +27,8 @@ public class EDF {
 			return escolhido;
 		}
 		
+		/*Funcao que calcula o "EARLIEST DEADLINE FIRST (EDF)", onde os processos que recebem prioridades sao os processos que tem sua
+		 * deadline mais perto*/
 		public static void edf(int processos[][], int qnt) {
 			int relogio = 0;
 			int deadlines[] = new int [1 * qnt];
@@ -78,7 +83,7 @@ public class EDF {
 					System.out.println();
 					contador[escolhido] += 1;
 				}
-				if (relogio >= 20) {
+				if (relogio >= 15) {
 					break;
 				}
 			}
@@ -88,6 +93,7 @@ public class EDF {
 			}
 		}
 		
+		/*Metodo principal onde sao executadas as funcoes*/
 		public static void main (String[] args) {
 		
 			int processos[][] = 
@@ -102,3 +108,5 @@ public class EDF {
 			edf(processos, qnt);
 		}
 }
+
+/*Traduzido por: Ruan Christian Pontes dos Santos*/
