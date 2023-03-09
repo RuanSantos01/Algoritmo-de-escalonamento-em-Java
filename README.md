@@ -1,6 +1,6 @@
 # Algoritmo de escalonamento em Java
-EDF (Earliest deadline first) \n
-FCFS (First-come Firt-served) \n
-RR (Round-Robin) \n
-SJF (Shortest job first) \n
+EDF (Earliest deadline first) 
+FCFS (First-come Firt-served) 
+RR (Round-Robin) 
+SJF (Shortest job first) 
 # (Scripts de escalonamento em java)
