@@ -1,2 +1,6 @@
-# Algoritmo-de-escalonamento-em-Java
-EDF - FCFS - RR - SJF (Scripts de escalonamento em java)
+# Algoritmo de escalonamento em Java
+EDF (Earliest deadline first)
+FCFS (First-come Firt-served)
+RR (Round-Robin)
+SJF (Shortest job first)
+(Scripts de escalonamento em java)
